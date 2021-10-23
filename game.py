@@ -10,12 +10,23 @@ def users_inputs():
 
 def guessing_number():
     print("Let's play!Imagine  number in the range 0-1000 and I will guess your number in max 10 attempts!")
-    print("If you have one please press 'Enter' to continue!")
-    input()
+    print(input("If you have one please press 'Enter' to continue!"))
+
+
     min = 0
     max = 1000
-    user_answer = ""
+    while True:
+        guess = int((max - min) / 2) + min
+        print(f"I guess: {guess}")
+        user_answer = users_inputs()
+        if user_answer == "lower":
+            max = guess
+        elif user_answer == "bigger":
+            min = guess
+        else:
+            print("I win!")
+            break
 
 
 
-users_inputs()
+guessing_number()
